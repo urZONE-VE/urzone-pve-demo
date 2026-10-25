@@ -1,8 +1,10 @@
 # urZONE PVE - Demo Plan
 
-**By Osiris Simmons (Osiris83)** https://dnl.urzone.org/
+**By Osiris Simmons (Osiris83)** https://urzone.org/ https://dnl.urzone.org/
 
-**urZONE PVE - Demo Plan** lets visitors try your Proxmox hosting before they buy. It adds a front-page demo for any logged-in user, limits how long it lasts, and automatically deletes every demo instance when time is up. It requires **urZONE PVE Core**.
+**urZONE PVE - Demo Plan** lets visitors try your Proxmox hosting before they buy. It adds a front-page demo for any logged-in user, limits how long it lasts, and automatically deletes every demo instance when time is up.
+
+> **Important:** This plugin does not work on its own. It requires both **urZONE PVE Core** and **urZONE PVE Settings**. Core provides the engine and panel, and Settings provides the configuration. Install and activate both first.
 
 ## What it does
 
@@ -24,28 +26,21 @@ Logged-in visitors see the demo panel. The `[urzone-pve-demo]` form does exactly
 
 ## Settings
 
-All settings are optional and live in `wp-config.php`. Defaults are shown below.
-
-```php
-define( 'URZONE_PROXMOX_DEMO_MINUTES', 60 );           // length of one demo
-define( 'URZONE_PROXMOX_DEMO_WARN_MINUTES', 10 );      // warning before it ends (0 = off)
-define( 'URZONE_PROXMOX_DEMO_MAX_INSTANCES', 2 );      // instances per demo
-define( 'URZONE_PROXMOX_DEMO_COOLDOWN_MINUTES', 0 );   // wait before the same user can start another demo
-define( 'URZONE_PROXMOX_DEMO_BRIDGE', '' );            // e.g. an isolated bridge for demo guests
-```
+You do not need to edit any files by hand. The demo settings are saved to `wp-config.php` automatically by **urZONE PVE Settings** when you press Save, and the plugin keeps a backup of the previous file. The options are:
 
 | Setting | Default | What it controls |
 |---|:---:|---|
-| `URZONE_PROXMOX_DEMO_MINUTES` | 60 | Length of one demo |
-| `URZONE_PROXMOX_DEMO_WARN_MINUTES` | 10 | Warning before the demo ends (0 = off) |
-| `URZONE_PROXMOX_DEMO_MAX_INSTANCES` | 2 | Instances allowed per demo (minimum 1) |
-| `URZONE_PROXMOX_DEMO_COOLDOWN_MINUTES` | 0 | Wait before the same user can start another demo |
-| `URZONE_PROXMOX_DEMO_BRIDGE` | empty | Network bridge for demo guests, e.g. an isolated one |
+| Demo length (minutes) | 60 | Length of one demo |
+| Warning before end (minutes) | 10 | Warning before the demo ends (0 = off) |
+| Max instances | 2 | Instances allowed per demo (minimum 1) |
+| Cooldown (minutes) | 0 | Wait before the same user can start another demo |
+| Demo bridge | empty | Network bridge for demo guests, e.g. an isolated one |
 
 ## Requirements
 
 - WordPress
-- **urZONE PVE Core** (free or Pro) installed and active
+- **urZONE PVE Core** (free or Pro), installed and active
+- **urZONE PVE Settings** (free or Pro), installed and active
 
 ## License
 
